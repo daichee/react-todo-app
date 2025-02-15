@@ -1,0 +1,11 @@
+{
+  "rewrites": [
+    {
+      "source": "/react-todo-app/(.*)",
+      "destination": "/$1"
+    }
+  ],
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "vite"
+}
