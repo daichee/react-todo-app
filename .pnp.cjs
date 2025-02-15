@@ -34,6 +34,7 @@ const RAW_RUNTIME_STATE =
           ["@types/uuid", "npm:10.0.0"],\
           ["@vitejs/plugin-react", "virtual:be483038ff6208a48fef8c06dc740498755663d9173b6e90970f24814b59d7425a0320a67d7de879400e0fc7d1d5ec9fe1ba66bafcc115cabce40f196675715d#npm:4.3.4"],\
           ["autoprefixer", "virtual:be483038ff6208a48fef8c06dc740498755663d9173b6e90970f24814b59d7425a0320a67d7de879400e0fc7d1d5ec9fe1ba66bafcc115cabce40f196675715d#npm:10.4.17"],\
+          ["date-fns", "npm:4.1.0"],\
           ["eslint", "virtual:be483038ff6208a48fef8c06dc740498755663d9173b6e90970f24814b59d7425a0320a67d7de879400e0fc7d1d5ec9fe1ba66bafcc115cabce40f196675715d#npm:9.20.1"],\
           ["eslint-plugin-react-hooks", "virtual:be483038ff6208a48fef8c06dc740498755663d9173b6e90970f24814b59d7425a0320a67d7de879400e0fc7d1d5ec9fe1ba66bafcc115cabce40f196675715d#npm:5.1.0"],\
           ["eslint-plugin-react-refresh", "virtual:be483038ff6208a48fef8c06dc740498755663d9173b6e90970f24814b59d7425a0320a67d7de879400e0fc7d1d5ec9fe1ba66bafcc115cabce40f196675715d#npm:0.4.19"],\
@@ -1774,6 +1775,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../AppData/Local/Yarn/Berry/cache/csstype-npm-3.1.3-e9a1c85013-10c0.zip/node_modules/csstype/",\
         "packageDependencies": [\
           ["csstype", "npm:3.1.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["date-fns", [\
+      ["npm:4.1.0", {\
+        "packageLocation": "../../../AppData/Local/Yarn/Berry/cache/date-fns-npm-4.1.0-764604ee0f-10c0.zip/node_modules/date-fns/",\
+        "packageDependencies": [\
+          ["date-fns", "npm:4.1.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -3542,6 +3552,7 @@ const RAW_RUNTIME_STATE =
           ["@types/uuid", "npm:10.0.0"],\
           ["@vitejs/plugin-react", "virtual:be483038ff6208a48fef8c06dc740498755663d9173b6e90970f24814b59d7425a0320a67d7de879400e0fc7d1d5ec9fe1ba66bafcc115cabce40f196675715d#npm:4.3.4"],\
           ["autoprefixer", "virtual:be483038ff6208a48fef8c06dc740498755663d9173b6e90970f24814b59d7425a0320a67d7de879400e0fc7d1d5ec9fe1ba66bafcc115cabce40f196675715d#npm:10.4.17"],\
+          ["date-fns", "npm:4.1.0"],\
           ["eslint", "virtual:be483038ff6208a48fef8c06dc740498755663d9173b6e90970f24814b59d7425a0320a67d7de879400e0fc7d1d5ec9fe1ba66bafcc115cabce40f196675715d#npm:9.20.1"],\
           ["eslint-plugin-react-hooks", "virtual:be483038ff6208a48fef8c06dc740498755663d9173b6e90970f24814b59d7425a0320a67d7de879400e0fc7d1d5ec9fe1ba66bafcc115cabce40f196675715d#npm:5.1.0"],\
           ["eslint-plugin-react-refresh", "virtual:be483038ff6208a48fef8c06dc740498755663d9173b6e90970f24814b59d7425a0320a67d7de879400e0fc7d1d5ec9fe1ba66bafcc115cabce40f196675715d#npm:0.4.19"],\

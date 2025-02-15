@@ -105,20 +105,23 @@ const App: React.FC = () => {
         <div className="min-h-screen bg-gray-100">
             {/* ヘッダー */}
             <header className="bg-white shadow-sm">
-                <div className="container mx-auto px-4 py-4">
-                    <div className="flex justify-between items-center">
-                        <div>
-                            <h1 className="text-2xl font-bold text-gray-900">Todoリスト</h1>
-                            <p className="text-sm text-gray-600 mt-1">
-                                シンプルで使いやすいタスク管理ツール。タスクの追加、編集、ステータス管理を直感的に行えます。
-                            </p>
+                <div className="container mx-auto px-6 py-4">
+                    {/* タイトル行 */}
+                    <h1 className="text-2xl font-bold text-gray-900 mb-3">Todoリスト</h1>
+                    
+                    {/* 説明文と新規登録ボタンの行 */}
+                    <div className="grid grid-cols-3 gap-4">
+                        <p className="text-sm text-gray-600 col-span-2">
+                            シンプルで使いやすいタスク管理ツール。タスクの追加、編集、ステータス管理を直感的に行えます。
+                        </p>
+                        <div className="flex justify-end">
+                            <button
+                                onClick={() => setIsFormOpen(true)}
+                                className="bg-blue-500 text-white px-3 py-1.5 text-sm rounded-md hover:bg-blue-600 transition-colors duration-200"
+                            >
+                                新規登録
+                            </button>
                         </div>
-                        <button
-                            onClick={() => setIsFormOpen(true)}
-                            className="bg-blue-500 text-white px-3 py-1.5 text-sm rounded-md hover:bg-blue-600 transition-colors duration-200"
-                        >
-                            新規登録
-                        </button>
                     </div>
                 </div>
             </header>

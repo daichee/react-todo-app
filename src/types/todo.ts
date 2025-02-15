@@ -13,14 +13,14 @@ export interface FilterConfig {
     dueDate: DueDateFilter;
 }
 
-// Todoの型を定義
+// Todoアイテムの型
 export interface Todo {
     id: string;
     title: string;
-    status: TodoStatus;
     details?: string;
-    createdAt: Date;
-    dueDate: Date;  // 期限日を必須に変更
+    status: TodoStatus;
+    createdAt: string | Date;
+    dueDate: string | Date;
 }
 
 // フィルター用の型を定義
