@@ -1,65 +1,63 @@
 import React from 'react';
-import { TodoStatus, FilterConfig } from '../../types/todo';
+import { FilterConfig, DueDateFilter as DueDateFilterType } from '../../types/todo';
 
-interface TodoFilterProps {
+interface DueDateFilterProps {
     filterConfig: FilterConfig;
     onFilterChange: (newConfig: FilterConfig) => void;
 }
 
-export const TodoFilter: React.FC<TodoFilterProps> = ({
+export const DueDateFilter: React.FC<DueDateFilterProps> = ({
     filterConfig,
     onFilterChange
 }) => {
-    const handleStatusChange = (status: TodoStatus | 'ALL') => {
+    const handleDueDateChange = (dueDate: DueDateFilterType) => {
         onFilterChange({
             ...filterConfig,
-            status
+            dueDate
         });
     };
 
     return (
         <div>
-            <h3 className="text-sm font-medium text-gray-700 mb-3">ステータス</h3>
+            <h3 className="text-sm font-medium text-gray-700 mb-3">期限</h3>
             <div className="flex flex-wrap gap-2">
                 <button
-                    onClick={() => handleStatusChange('ALL')}
+                    onClick={() => handleDueDateChange('ALL')}
                     className={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors duration-200 
-                        ${filterConfig.status === 'ALL' 
+                        ${filterConfig.dueDate === 'ALL' 
                             ? 'bg-blue-500 text-white' 
                             : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
                 >
                     全て
                 </button>
                 <button
-                    onClick={() => handleStatusChange('NOT_STARTED')}
+                    onClick={() => handleDueDateChange('OVERDUE')}
                     className={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors duration-200 
-                        ${filterConfig.status === 'NOT_STARTED'
-                            ? 'bg-gray-500 text-white'
+                        ${filterConfig.dueDate === 'OVERDUE'
+                            ? 'bg-red-500 text-white'
                             : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
                 >
-                    未着手
+                    期限切れ
                 </button>
                 <button
-                    onClick={() => handleStatusChange('IN_PROGRESS')}
+                    onClick={() => handleDueDateChange('TODAY')}
                     className={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors duration-200 
-                        ${filterConfig.status === 'IN_PROGRESS'
+                        ${filterConfig.dueDate === 'TODAY'
                             ? 'bg-yellow-500 text-white'
                             : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
                 >
-                    進行中
+                    今日まで
                 </button>
                 <button
-                    onClick={() => handleStatusChange('COMPLETED')}
+                    onClick={() => handleDueDateChange('THIS_WEEK')}
                     className={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors duration-200 
-                        ${filterConfig.status === 'COMPLETED'
+                        ${filterConfig.dueDate === 'THIS_WEEK'
                             ? 'bg-green-500 text-white'
                             : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
                 >
-                    完了
+                    今週まで
                 </button>
             </div>
         </div>
     );
 };
-
-export default TodoFilter;

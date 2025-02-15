@@ -66,7 +66,7 @@ export const TodoForm: React.FC<TodoFormProps> = ({ onSubmit, initialTodo, onCan
     };
 
     return (
-        <form onSubmit={handleSubmit} className="mb-6 p-4 bg-white rounded-lg shadow">
+        <form onSubmit={handleSubmit}>
             <div className="mb-4">
                 <label htmlFor="title" className="block text-gray-700 font-medium mb-2">タイトル</label>
                 <input
@@ -101,7 +101,7 @@ export const TodoForm: React.FC<TodoFormProps> = ({ onSubmit, initialTodo, onCan
                     required
                 />
             </div>
-            <div className="mb-4">
+            <div className="mb-6">
                 <label htmlFor="status" className="block text-gray-700 font-medium mb-2">
                     ステータス
                 </label>
