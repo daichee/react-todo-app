@@ -1,50 +1,94 @@
-# React + TypeScript + Vite
+# Todo App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+モダンなUIを備えたTodoアプリケーション。React + TypeScript + Tailwind CSSで実装されています。
 
-Currently, two official plugins are available:
+## 機能
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Todoの作成、編集、削除
+- ステータス管理（未着手、進行中、完了）
+- 期限日の設定と期限切れの視覚的表示
+- フィルタリング機能
+  - ステータスによるフィルタリング
+  - 期限日によるフィルタリング
+- ソート機能
+  - 作成日順
+  - 期限日順
+  - タイトル順
 
-## Expanding the ESLint configuration
+## 技術スタック
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- React 18
+- TypeScript
+- Tailwind CSS
+- Vite
 
-- Configure the top-level `parserOptions` property like this:
+## プロジェクト構成
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```
+src/
+├── components/           # コンポーネント
+│   ├── common/          # 共通コンポーネント
+│   │   └── Modal/       # モーダルダイアログ
+│   └── features/        # 機能別コンポーネント
+│       ├── todo/        # Todo関連
+│       ├── filter/      # フィルタリング関連
+│       └── sort/        # ソート関連
+├── constants/           # 定数定義
+├── hooks/              # カスタムフック
+├── types/              # 型定義
+└── utils/              # ユーティリティ関数
+
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## 開発環境のセットアップ
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+1. 依存関係のインストール:
+```bash
+yarn install
 ```
+
+2. 開発サーバーの起動:
+```bash
+yarn dev
+```
+
+3. ビルド:
+```bash
+yarn build
+```
+
+## 主な機能の説明
+
+### Todoの管理
+
+- 新規作成：「+ 新規作成」ボタンからTodoを作成
+- 編集：各Todoの「編集」ボタンから内容を編集
+- 削除：各Todoの「削除」ボタンから削除
+- ステータス変更：各Todoのステータスセレクトボックスから変更
+
+### フィルタリング
+
+- ステータスフィルター：指定したステータスのTodoのみを表示
+- 期限日フィルター：今日、今週、今月などの期限でフィルタリング
+
+### ソート
+
+- 作成日順：Todoの作成日時でソート
+- 期限日順：設定された期限日でソート
+- タイトル順：タイトルのアルファベット順でソート
+
+## デザインの特徴
+
+- モダンでクリーンなUI
+- ステータスに応じた色分け
+- 期限切れの視覚的表示（赤テキスト）
+- レスポンシブデザイン
+- アクセシビリティに配慮したコントラスト比
+
+## 今後の改善予定
+
+- [ ] タグ機能の追加
+- [ ] キーボードショートカットの実装
+- [ ] ドラッグ&ドロップによる並び替え
+- [ ] ダークモードの対応
+- [ ] ローカルストレージの永続化

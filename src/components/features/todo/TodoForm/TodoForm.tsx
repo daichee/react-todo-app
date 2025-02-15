@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Todo, TodoStatus } from '../../types/todo';
-import { TODO_STATUSES } from '../../constants/todoConstants';
+import { Todo, TodoStatus } from '../../../../types/todo';
+import { TODO_STATUSES } from '../../../../constants/todoConstants';
 
 interface TodoFormProps {
     onSubmit: (todo: Todo) => void;
