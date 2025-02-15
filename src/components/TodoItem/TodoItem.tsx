@@ -44,9 +44,9 @@ export const TodoItem: React.FC<TodoItemProps> = ({
 
             {/* ステータスと日付情報 */}
             <div className="px-4 py-3">
-                {/* モバイル用レイアウト */}
-                <div className="sm:hidden space-y-2">
-                    <div className="grid grid-cols-1">
+                {/* モバイル・タブレット用レイアウト */}
+                <div className="lg:hidden">
+                    <div className="grid grid-cols-1 mb-2">
                         <select
                             value={todo.status}
                             onChange={(e) => onStatusChange(todo.id, e.target.value as TodoStatus)}
@@ -57,12 +57,12 @@ export const TodoItem: React.FC<TodoItemProps> = ({
                             <option value="COMPLETED">完了</option>
                         </select>
                     </div>
-                    <div className="grid grid-cols-2 gap-2">
-                        <div className="text-sm text-gray-600 flex items-center justify-center gap-1 whitespace-nowrap">
+                    <div className="flex justify-between items-center">
+                        <div className="text-sm text-gray-600 flex items-center gap-1">
                             <ClockIcon className="w-4 h-4 flex-shrink-0" />
                             作成: {format(new Date(todo.createdAt), 'yyyy/MM/dd', { locale: ja })}
                         </div>
-                        <div className={`text-sm ${isDueDateOverdue ? 'text-red-600' : 'text-gray-600'} flex items-center justify-center gap-1 whitespace-nowrap`}>
+                        <div className={`text-sm ${isDueDateOverdue ? 'text-red-600' : 'text-gray-600'} flex items-center gap-1`}>
                             <CalendarIcon className="w-4 h-4 flex-shrink-0" />
                             期限: {format(new Date(todo.dueDate), 'yyyy/MM/dd', { locale: ja })}
                         </div>
@@ -70,7 +70,7 @@ export const TodoItem: React.FC<TodoItemProps> = ({
                 </div>
 
                 {/* デスクトップ用レイアウト */}
-                <div className="hidden sm:grid sm:grid-cols-3 sm:gap-4 sm:items-center">
+                <div className="hidden lg:grid lg:grid-cols-3 lg:gap-4 lg:items-center">
                     <div>
                         <select
                             value={todo.status}
@@ -82,11 +82,11 @@ export const TodoItem: React.FC<TodoItemProps> = ({
                             <option value="COMPLETED">完了</option>
                         </select>
                     </div>
-                    <div className="text-sm text-gray-600 flex items-center justify-center gap-1 whitespace-nowrap">
+                    <div className="text-sm text-gray-600 flex items-center gap-1">
                         <ClockIcon className="w-4 h-4 flex-shrink-0" />
                         作成: {format(new Date(todo.createdAt), 'yyyy/MM/dd', { locale: ja })}
                     </div>
-                    <div className={`text-sm ${isDueDateOverdue ? 'text-red-600' : 'text-gray-600'} flex items-center justify-center gap-1 whitespace-nowrap`}>
+                    <div className={`text-sm ${isDueDateOverdue ? 'text-red-600' : 'text-gray-600'} flex items-center gap-1`}>
                         <CalendarIcon className="w-4 h-4 flex-shrink-0" />
                         期限: {format(new Date(todo.dueDate), 'yyyy/MM/dd', { locale: ja })}
                     </div>
@@ -94,20 +94,20 @@ export const TodoItem: React.FC<TodoItemProps> = ({
             </div>
 
             {/* 詳細とアクション */}
-            <div className="p-4 flex flex-col sm:flex-row justify-between items-start gap-3 sm:gap-4">
-                <p className="text-sm text-gray-600 flex-grow min-w-0">
-                    {todo.details || '詳細なし'}
-                </p>
-                <div className="flex gap-4 sm:gap-3 self-end sm:self-start flex-shrink-0">
+            <div className="px-4 py-2 flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                <div className="text-sm text-gray-600 mb-2 lg:mb-0">
+                    {todo.details}
+                </div>
+                <div className="flex gap-2 justify-end">
                     <button
                         onClick={() => onEdit(todo)}
-                        className="text-blue-500 hover:text-blue-600 text-sm whitespace-nowrap"
+                        className="text-blue-600 hover:text-blue-700 text-sm"
                     >
                         編集
                     </button>
                     <button
                         onClick={() => onDelete(todo.id)}
-                        className="text-red-500 hover:text-red-600 text-sm whitespace-nowrap"
+                        className="text-red-600 hover:text-red-700 text-sm"
                     >
                         削除
                     </button>
