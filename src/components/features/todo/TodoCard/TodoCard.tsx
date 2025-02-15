@@ -17,22 +17,22 @@ export const TodoCard: React.FC<TodoCardProps> = ({
     onEdit,
     onDelete
 }) => {
-    const getBgColor = (status: TodoStatus) => {
+    const getStatusColor = (status: TodoStatus) => {
         switch (status) {
             case 'NOT_STARTED':
-                return 'bg-gray-500';
+                return 'bg-gray-600';
             case 'IN_PROGRESS':
-                return 'bg-blue-500';
+                return 'bg-blue-600';
             case 'COMPLETED':
-                return 'bg-green-500';
+                return 'bg-green-600';
             default:
-                return 'bg-gray-500';
+                return 'bg-gray-600';
         }
     };
 
     return (
-        <div className="bg-white rounded-lg shadow-md overflow-hidden">
-            <div className={`${getBgColor(todo.status)} p-4`}>
+        <div className="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200 hover:shadow-md transition-shadow">
+            <div className={`${getStatusColor(todo.status)}`}>
                 <TodoHeader todo={todo} onStatusChange={onStatusChange} />
             </div>
             <TodoContent todo={todo} />
