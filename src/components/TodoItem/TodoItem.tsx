@@ -94,23 +94,50 @@ export const TodoItem: React.FC<TodoItemProps> = ({
             </div>
 
             {/* 詳細とアクション */}
-            <div className="px-4 py-2 flex flex-col lg:flex-row lg:items-center lg:justify-between">
-                <div className="text-sm text-gray-600 mb-2 lg:mb-0">
-                    {todo.details}
+            <div className="px-4 py-2">
+                {/* モバイル用レイアウト */}
+                <div className="lg:hidden flex flex-col gap-2">
+                    <div className="text-sm text-gray-600 line-clamp-2">
+                        {todo.details}
+                    </div>
+                    <div className="flex gap-4 justify-end">
+                        <button
+                            onClick={() => onEdit(todo)}
+                            className="text-blue-600 hover:text-blue-700 text-sm px-2 py-1"
+                        >
+                            編集
+                        </button>
+                        <button
+                            onClick={() => onDelete(todo.id)}
+                            className="text-red-600 hover:text-red-700 text-sm px-2 py-1"
+                        >
+                            削除
+                        </button>
+                    </div>
                 </div>
-                <div className="flex gap-2 justify-end">
-                    <button
-                        onClick={() => onEdit(todo)}
-                        className="text-blue-600 hover:text-blue-700 text-sm"
-                    >
-                        編集
-                    </button>
-                    <button
-                        onClick={() => onDelete(todo.id)}
-                        className="text-red-600 hover:text-red-700 text-sm"
-                    >
-                        削除
-                    </button>
+
+                {/* デスクトップ用レイアウト */}
+                <div className="hidden lg:grid lg:grid-cols-12 lg:gap-4 lg:items-center">
+                    <div className="col-span-7 text-sm text-gray-600 line-clamp-2">
+                        {todo.details}
+                    </div>
+                    <div className="col-span-1"></div>
+                    <div className="col-span-2 flex justify-center">
+                        <button
+                            onClick={() => onEdit(todo)}
+                            className="text-blue-600 hover:text-blue-700 text-sm px-2 py-1"
+                        >
+                            編集
+                        </button>
+                    </div>
+                    <div className="col-span-2 flex justify-center">
+                        <button
+                            onClick={() => onDelete(todo.id)}
+                            className="text-red-600 hover:text-red-700 text-sm px-2 py-1"
+                        >
+                            削除
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
